@@ -1,0 +1,48 @@
+_id
+urlOfMessage
+srcOfMessage
+date
+trainNumber
+type
+startPoint
+endPoint
+compartment
+description
+startTime
+endTime
+submitTime
+//remark
+
+datas
+unconfirmedDatas
+admin
+mayError
+
+
+
+collection: mayError
+
+
+  {{#  if(d.t_type == 1){ }}
+        飞机
+    {{#  } else if(d.t_type == 2) { }}
+        火车
+    {{#  } else if(d.t_type == 3) { }}
+        地铁
+    {{#  } else if(d.t_type == 4) { }}
+        长途客车/大巴
+    {{#  } else if(d.t_type == 5) { }}
+        公交车
+    {{#  } else if(d.t_type == 6) { }}
+        出租车
+    {{#  } else if(d.t_type == 7) { }}
+        轮船
+    {{#  } else if(d.t_type == 8) { }}
+        其它公共场所
+    {{#  } }}
+
+      <el-table-column
+        :prop="typeMapping[type]" // prop="{{ val }}"这样的写法已经被移除了
+        label="出行类型"
+        width="120">
+      </el-table-column>
